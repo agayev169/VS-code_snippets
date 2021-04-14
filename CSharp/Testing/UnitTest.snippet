@@ -1,0 +1,42 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Unit Test</Title>
+            <Author>Kamal Aghayev</Author>
+            <Description>Creates unit test</Description>
+            <Shortcut>ut</Shortcut>
+            <Comment>For the unit test convention refer to: https://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html</Comment>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[[Fact]
+                public void $UnitOfWork$_$StateUnderTest$_$ExpectedBehavior$()
+                {
+
+                }]]>
+            </Code>
+            <Imports>
+                <Import>
+                    <Namespace name="AutoFixture">AutoFixture</Namespace>
+                </Import>
+            </Imports>
+            <Declarations>
+                <Literal name="UnitOfWork">
+                    <ID>UnitOfWork</ID>
+                    <ToolTip>Unit of work tested. Usually, name of a method/ctor that is tested.</ToolTip>
+                    <Default>UnitOfWork</Default>
+                </Literal>
+                <Literal name="StateUnderTest">
+                    <ID>StateUnderTest</ID>
+                    <ToolTip>State under the test</ToolTip>
+                    <Default>StateUnderTest</Default>
+                </Literal>
+                <Literal name="ExpectedBehavior">
+                    <ID>ExpectedBehavior</ID>
+                    <ToolTip>Expected behavior of the tested $UnitOfWork$ in the $StateUnderTest$ state. Usually, ThrowsException/Returns{ReturnValue}, etc.</ToolTip>
+                    <Default>ExpectedBehavior</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

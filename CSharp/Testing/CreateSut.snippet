@@ -1,0 +1,27 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Create SUT</Title>
+            <Author>Kamal Aghayev</Author>
+            <Description>Creates SUT</Description>
+            <Shortcut>sut</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[var sut = _fixture.Create<$SUT$>();]]>
+            </Code>
+            <Imports>
+                <Import>
+                    <Namespace name="AutoFixture">AutoFixture</Namespace>
+                </Import>
+            </Imports>
+            <Declarations>
+                <Literal name="SUT">
+                    <ID>SUT</ID>
+                    <ToolTip>System under test.</ToolTip>
+                    <Default>SUT</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

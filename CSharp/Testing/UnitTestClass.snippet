@@ -1,0 +1,42 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Unit Test Class</Title>
+            <Author>Kamal Aghayev</Author>
+            <Description>Creates unit test class</Description>
+            <Shortcut>utclass</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public class $SUTClassName$Tests
+                {
+                    private readonly IFixture _fixture;
+
+
+                    public $SUTClassName$Tests()
+                    {
+                        _fixture = new Fixture().Customize(new AutoMoqCustomization { ConfigureMembers = true });
+                        _fixture.Customize<$SUTClassName$>(c => c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+                    }
+
+
+                    private $SUTClassName$ createSut() => _fixture.Create<$SUTClassName$>();
+                }]]>
+            </Code>
+            <Imports>
+                <Import>
+                    <Namespace name="AutoFixture">AutoFixture</Namespace>
+                    <Namespace name="AutoFixture.Kernel">AutoFixture.Kernel</Namespace>
+                    <Namespace name="AutoFixture.AutoMoq">AutoFixture.AutoMoq</Namespace>
+                </Import>
+            </Imports>
+            <Declarations>
+                <Literal name="sutClassName">
+                    <ID>SUTClassName</ID>
+                    <ToolTip>Name of a tested class</ToolTip>
+                    <Default>TestedClass</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,39 @@
+﻿<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Ctor Null Test</Title>
+            <Author>Kamal Aghayev</Author>
+            <Description>Tests constructor argument for null</Description>
+            <Shortcut>ctornull</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[[Fact]
+                public void Ctor_Null$NullClassName$_ThrowsException()
+                {
+                    _fixture.Register<$NullClassName$>(() => null);
+
+                    var thrownException = Assert.ThrowsAny<ObjectCreationException>(this.createSut);
+                    var expectedException = Assert.IsType<ArgumentNullException>(thrownException.InnerException?.InnerException);
+
+                    Assert.Equal("$NullObjectName$", expectedException.ParamName);
+                }]]>
+            </Code>
+            <Imports>
+                <Import>Xunit</Import>
+            </Imports>
+            <Declarations>
+                <Literal name="nullClassName">
+                    <ID>NullClassName</ID>
+                    <ToolTip>Name of a class to be null</ToolTip>
+                    <Default>ClassName</Default>
+                </Literal>
+                <Literal name="nullObjectName">
+                    <ID>NullObjectName</ID>
+                    <ToolTip>Name of an object to be null</ToolTip>
+                    <Default>nullObject</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
